@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/Partials');
 var app = express();
@@ -15,15 +16,18 @@ app.use((req,res,next)=>{
 	var log = `${now}: method- ${req.method} on URL- ${req.url} `;
 	fs.appendFile('server.log', log + '\n',(err)=>{
 		if(err) {
-			console,log('Unsable to append to server.log.');
+			console.log('Unsable to append to server.log.');
 		}
 	});
 	console.log(log);
-//15. mainainance page will be loaded as we have commented out next for every 
-//request except to files in public folder as it is directly being accessed above
-	res.render('maintainance.hbs');
-	//next();
+    next();
 });
+
+    // app.use((req,res,next)=>{
+//15. mainainance page will be loaded for every 
+//request except to files in public folder as it is directly being accessed above
+		// res.render('maintainance.hbs');
+    // });
 app.get('/',(req,res)=>{
 	res.send({
 		likes:["food",
@@ -61,7 +65,7 @@ app.get('/home',(req,res)=>{
 	});
 });
 
-app.listen(3000,()=>{console.log('Server is up on port 3000');});
+app.listen(port,()=>{console.log(`Server is up on port ${port}`);});
 
 //Middleware functions are functions that have access to the request object (req), the response object (res),
 // and the next middleware function in the application’s request-response cycle.
