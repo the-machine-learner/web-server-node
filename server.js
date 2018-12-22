@@ -29,14 +29,10 @@ app.use((req,res,next)=>{
 		// res.render('maintainance.hbs');
     // });
 app.get('/',(req,res)=>{
-		res.render('about.hbs',{
-		pageTitle: 'about Page',
-		currentYear: new Date().getFullYear(),
+	res.send({
+		likes:["food",
+		"trekking"]
 	});
-	// res.send({
-	// 	likes:["food",
-	// 	"trekking"]
-	// });
 });
 
 //14. setting up partial funcrions for reundant code
