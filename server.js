@@ -29,10 +29,14 @@ app.use((req,res,next)=>{
 		// res.render('maintainance.hbs');
     // });
 app.get('/',(req,res)=>{
-	res.send({
-		likes:["food",
-		"trekking"]
+		res.render('about.hbs',{
+		pageTitle: 'about Page',
+		currentYear: new Date().getFullYear(),
 	});
+	// res.send({
+	// 	likes:["food",
+	// 	"trekking"]
+	// });
 });
 
 //14. setting up partial funcrions for reundant code
@@ -64,7 +68,6 @@ app.get('/home',(req,res)=>{
 		wlecomeMess: 'Welcome to my website'
 	});
 });
-console.log('abc');
 app.listen(port,()=>{console.log(`Server is up on port ${port}`);});
 
 //Middleware functions are functions that have access to the request object (req), the response object (res),
