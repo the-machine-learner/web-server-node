@@ -64,7 +64,7 @@ app.get('/home',(req,res)=>{
 		wlecomeMess: 'Welcome to my website'
 	});
 });
-
+console.log('abc');
 app.listen(port,()=>{console.log(`Server is up on port ${port}`);});
 
 //Middleware functions are functions that have access to the request object (req), the response object (res),
