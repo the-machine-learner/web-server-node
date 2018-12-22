@@ -29,9 +29,10 @@ app.use((req,res,next)=>{
 		// res.render('maintainance.hbs');
     // });
 app.get('/',(req,res)=>{
-	res.send({
-		likes:["food",
-		"trekking"]
+	res.render('home.hbs',{
+		pageTitle: 'about page',
+		currentYear: new Date().getFullYear(),
+		wlecomeMess: 'Welcome to my website'
 	});
 });
 
