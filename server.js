@@ -29,10 +29,9 @@ app.use((req,res,next)=>{
 		// res.render('maintainance.hbs');
     // });
 app.get('/',(req,res)=>{
-	res.render('home.hbs',{
-		pageTitle: 'about page',
-		currentYear: new Date().getFullYear(),
-		wlecomeMess: 'Welcome to my website'
+	res.send({
+		likes:["food",
+		"trekking"]
 	});
 });
 
